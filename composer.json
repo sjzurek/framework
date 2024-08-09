@@ -1,5 +1,5 @@
 {
-    "name": "lithe/framework",
+    "name": "lithecore/framework",
     "description": "Lithe is a flexible and efficient PHP framework for creating robust web applications that adapt to developers' needs.",
     "type": "library",
     "license": "MIT",
