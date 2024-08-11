@@ -12,7 +12,10 @@
     "autoload": {
         "psr-4": {
             "Lithe\\": "Lithe/"
-        }
+        },
+        "files": [
+            "src/Lithe/Utilities/asset.php"
+        ]
     },
     "require": {
         "php": "^8.2",
