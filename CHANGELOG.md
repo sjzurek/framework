@@ -1,12 +1,25 @@
 # Changelog
 
+## [1.0.1] - 2024-08-11
+
+- **Description**: This release includes significant improvements in code modularization and organization.
+
+- **Changelog**:
+  - **Middleware Management**:
+    - Removed integrated middlewares from the core framework.
+    - Middlewares are now part of the `lithe_modules` directory, allowing greater flexibility and customization in middleware integration and usage.
+  - **Autoloading**:
+    - Adjusted autoloading to ensure specific files from the `Utilities` folder are loaded correctly.
+  - **Code Cleanup**:
+    - Removed automatic import of the `Utilities` directory to improve organization and file loading.
+
 ## [1.0.0] - Initial Release
 
 - **Description**: Lithe is a PHP framework inspired by Express.js, renowned for its lightweight and flexible nature. It offers a minimalist approach to web development, integrating various components, ORMs, and databases while maintaining agile and efficient performance.
 
 - **Key Features**:
   - **Routing**: Simple and expressive route management with methods like `get()`, `post()`, among others.
-  - **Middleware**: Powerful support for middleware to handle requests, responses, and add functionalities such as authentication and logging.
+  - **Middleware**: Robust support for middleware to handle requests, responses, and add functionalities such as authentication and logging.
   - **Templates**: Support for multiple template engines, including PHP Pure, Blade, and Twig, with easy configuration.
   - **CSRF Protection**: Middleware for CSRF protection, including token generation and validation.
   - **Session Management**: Flexible session management with support for variables and customizable configurations.
