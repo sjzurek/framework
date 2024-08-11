@@ -5,6 +5,7 @@ namespace Lithe\Support\Security;
 use Illuminate\Encryption\Encrypter;
 use Lithe\Contracts\Encryption\CryptException;
 use Lithe\Support\Env;
+use Lithe\Support\Log;
 
 class Crypt
 {
@@ -39,16 +40,19 @@ class Crypt
     /**
      * Encrypts the provided data.
      *
-     * @param string $data Data to be encrypted.
+     * @param string|null $data Data to be encrypted. Can be null.
      * @return string Encrypted data in base64 format.
      * @throws CryptException If an error occurs while encrypting the data.
      */
-    public static function encrypt(string $data): string
+    public static function encrypt(?string $data): string
     {
         try {
-            return static::encrypter()->encrypt($data);
+            // If data is null, handle it appropriately
+            return static::encrypter()->encrypt($data ?? '');
         } catch (\Exception $e) {
-            throw new CryptException('Error encrypting data: ' . $e->getMessage());
+            $error = 'Error encrypting data: ' . $e->getMessage();
+            Log::error($error);
+            throw new CryptException($error);
         }
     }
 
@@ -56,15 +60,18 @@ class Crypt
      * Decrypts the provided data.
      *
      * @param string $encryptedData Encrypted data in base64 format.
-     * @return string Decrypted data.
+     * @return string|null Decrypted data. Returns null if decryption fails or if data is empty.
      * @throws CryptException If an error occurs while decrypting the data.
      */
-    public static function decrypt(string $encryptedData): string
+    public static function decrypt(string $encryptedData): ?string
     {
         try {
-            return static::encrypter()->decrypt($encryptedData);
+            // If encrypted data is empty, return null
+            return empty($encryptedData) ? null : static::encrypter()->decrypt($encryptedData);
         } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
-            throw new CryptException('Error decrypting data: ' . $e->getMessage());
+            $error = 'Error decrypting data: ' . $e->getMessage(); 
+            Log::error($error);
+            throw new CryptException($error);
         }
     }
 }
