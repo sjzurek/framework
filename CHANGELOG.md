@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.2] - 2024-08-11
+
+- **Description**: This release includes critical fixes and improvements to the encryption module and framework stability.
+
+- **Changelog**:
+  - **Crypt Module**:
+    - Fixed issue where passing `null` to the `decrypt` method caused errors. Now handles `null` values gracefully.
+  - **Code Improvements**:
+    - Enhanced error handling and validation in the Crypt class.
+    - Improved documentation for the Crypt class methods.
+
 ## [1.0.1] - 2024-08-11
 
 - **Description**: This release includes significant improvements in code modularization and organization.
