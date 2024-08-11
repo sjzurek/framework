@@ -5,9 +5,6 @@ namespace Lithe;
 use Lithe\Contracts\InvalidParameterTypeException;
 use Lithe\Support\Import;
 
-Import::dir(__DIR__ . '/Utilities')
-    ->files();
-
 /**
  * Main function that represents the application.
  */
