@@ -14,7 +14,7 @@
             "Lithe\\": "Lithe/"
         },
         "files": [
-            "src/Lithe/Utilities/asset.php"
+            "Lithe/Utilities/asset.php"
         ]
     },
     "require": {
